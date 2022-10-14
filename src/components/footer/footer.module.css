@@ -1,0 +1,47 @@
+.f{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) ;
+    background-color: white;
+    border-radius: 25px 25px 0 0;
+    padding: 30px;
+}
+.logo {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: left;
+}
+.href{
+    text-align: right;
+}
+.f a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    margin: 0 5px;
+
+}
+.list{
+    list-style-type: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+    padding: 0;
+    margin: 0 auto;
+    text-align: left;
+}
+.lang{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+}
+.terms{
+    display: grid;
+    grid-template-rows: 1fr auto;
+    text-align: left;
+}

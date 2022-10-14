@@ -1,0 +1,22 @@
+.h{
+    display: grid;
+    grid-template-columns: 1fr auto auto ;
+    padding: 15px 0;
+}
+.logo {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: left;
+    text-decoration: none;
+    color: black;
+}
+a{
+    text-decoration: none;
+    width: 22px;
+    height: 20px;
+    font-size: 20px;
+    margin: 0 5px;
+
+}
