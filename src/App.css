@@ -1,11 +1,12 @@
 .App {
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  padding: 0 148px 0 182px;
+  padding: 0 15%;
   background-color: #EAEAEA;
-  height: 100vh;
   display: grid;
-  grid-template-rows: 165px 1fr auto;
+  grid-template-rows: 60px 1fr auto;
+  background-size: cover;
+  background-attachment:scroll;
 
 }
 
