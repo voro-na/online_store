@@ -1,0 +1,58 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 21px;
+}
+.cardContainer{
+    background-color: white;
+    border-radius: 25px;
+    margin: 10px;
+    padding: 15px 20px;
+}
+.sum {
+    background-color: white;
+    border-radius: 25px;
+    height: 115px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    width: 350px;
+    margin: 10px;
+}
+.btn{
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+.finalPrice{
+    margin: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    text-align: right;
+    align-content: center;
+}
+.inform{
+    display: flex;
+    flex-direction: row;
+}
+.inform ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: start;
+    flex-direction: column;
+}
+.amount{
+    display: flex;
+    flex-direction: row;
+}

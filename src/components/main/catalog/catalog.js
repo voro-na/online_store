@@ -67,7 +67,7 @@ const catalog = () => {
         const temp = cart[key].map((product) => {
             return (
                 <div className={styles.cardContainer}>
-                    <img src={`${product.img}`}/>
+                    <img alt={`${product.title}`} src={`${product.img}`}/>
 
                     <div className={styles.title}>
                         <div>{product.title}</div>
