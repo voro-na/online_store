@@ -1,46 +1,14 @@
 import styles from './ShopingCart.module.css'
-import {useState} from "react";
+import {observer} from "mobx-react-lite";
+import useStores from "../../../store/RootStore";
 
-const ShopingCart = () => {
-    let cart = [{
-        img: 'img/1.svg',
-        title: 'Apple BYZ S852I',
-        price: 2927,
-        rate: 4.7,
-        amount: 1,
-        id: 1
-    },
-        {
-            img: 'img/3.svg',
-            title: 'Apple EarPods',
-            price: 2327,
-            rate: 4.5,
-            amount: 1,
-            id: 2
-        }]
 
-    const [products, SetProducts] = useState(cart)
+const ShopingCart = observer(() => {
+    const {storeProducts,storeCart}=useStores
 
-    const finalPrice = cart.reduce((final, temp) => final.price + temp.price)
-
-    const DeleteProduct = (e,id) => {
-        e.preventDefault()
-        SetProducts(products.map(t => (
-            t.id === id ? {...t, amount: t.amount--} : t
-        )))
-        console.log(products)
-    }
-    const AddProduct = (e,id) => {
-        e.preventDefault()
-        SetProducts(products.map(t => (
-            t.id === id ? {...t, amount: t.amount++} : t
-        )))
-        console.log(products)
-    }
-
-    const result = products.map((product) => {
+    const result = storeCart.cart.map((product) => {
         return (
-            <div className={styles.cardContainer}>
+            <div className={styles.cardContainer} key={product.id}>
                 <div className={styles.inform}>
                     <img alt={`${product.title}`} src={`${product.img}`}/>
                     <ul>
@@ -49,11 +17,11 @@ const ShopingCart = () => {
                     </ul>
                 </div>
                 <div className={styles.amount}>
-                    <button onClick={(e) => DeleteProduct(e,product.id)}>-</button>
+                    <button onClick={(e) => storeCart.decrement(product.id)}>-</button>
                     <div>{product.amount}</div>
-                    <button onClick={(e) => AddProduct(e, product.id)}>+
+                    <button onClick={(e) => storeCart.increment(product.id)}>+
                     </button>
-                    <div>{product.price} ₽</div>
+                    <div>{product.price * product.amount} ₽</div>
                 </div>
             </div>
         )
@@ -68,12 +36,12 @@ const ShopingCart = () => {
                 <div className={styles.sum}>
                     <div className={styles.finalPrice}>
                         <div>ИТОГО</div>
-                        <div>₽ {finalPrice}</div>
+                        <div>₽ {storeCart.price()}</div>
                     </div>
                     <div className={styles.btn}>Перейти к оформлению</div>
                 </div>
             </div>
         </div>
     )
-}
+})
 export default ShopingCart
