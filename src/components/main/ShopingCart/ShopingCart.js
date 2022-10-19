@@ -4,28 +4,33 @@ import useStores from "../../../store/RootStore";
 
 
 const ShopingCart = observer(() => {
-    const {storeProducts,storeCart}=useStores
+    const {storeProducts, storeCart} = useStores
 
-    const result = storeCart.cart.map((product) => {
-        return (
-            <div className={styles.cardContainer} key={product.id}>
-                <div className={styles.inform}>
-                    <img alt={`${product.title}`} src={`${product.img}`}/>
-                    <ul>
-                        <li>{product.title}</li>
-                        <li style={{color: '#FFA542'}}>{product.price} ₽</li>
-                    </ul>
+    let result = ''
+    if (storeCart.cart.length === 0)
+        result = 'Корзина пуста'
+    else {
+        result = storeCart.cart.map((product) => {
+            return (
+                <div className={styles.cardContainer} key={product.id}>
+                    <div className={styles.inform}>
+                        <img alt={product.title} src={process.env.PUBLIC_URL + product.img}/>
+                        <ul>
+                            <li>{product.title}</li>
+                            <li style={{color: '#FFA542'}}>{product.price} ₽</li>
+                        </ul>
+                    </div>
+                    <div className={styles.amount}>
+                        <button onClick={(e) => storeCart.decrement(product.id)} className={styles.btnorange}>-</button>
+                        <div>{product.amount}</div>
+                        <button onClick={(e) => storeCart.increment(product.id)} className={styles.btnorange}>+
+                        </button>
+                        <div>{product.price * product.amount} ₽</div>
+                    </div>
                 </div>
-                <div className={styles.amount}>
-                    <button onClick={(e) => storeCart.decrement(product.id)}>-</button>
-                    <div>{product.amount}</div>
-                    <button onClick={(e) => storeCart.increment(product.id)}>+
-                    </button>
-                    <div>{product.price * product.amount} ₽</div>
-                </div>
-            </div>
-        )
-    })
+            )
+        })
+    }
 
     return (
         <div>
@@ -36,7 +41,7 @@ const ShopingCart = observer(() => {
                 <div className={styles.sum}>
                     <div className={styles.finalPrice}>
                         <div>ИТОГО</div>
-                        <div>₽ {storeCart.price()}</div>
+                        <div>₽ {storeCart.Price()}</div>
                     </div>
                     <div className={styles.btn}>Перейти к оформлению</div>
                 </div>

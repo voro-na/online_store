@@ -1,7 +1,7 @@
 import {Routes, Route} from "react-router-dom";
 import Catalog from "./catalog/catalog";
 import ShopingCart from "./ShopingCart/ShopingCart";
-import useStores from "../../store/RootStore";
+
 
 const Main = () => {
 

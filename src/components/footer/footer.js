@@ -1,4 +1,5 @@
 import  styles from './footer.module.css'
+import {Link} from "react-router-dom";
 
 const Footer = () => {
   return(
@@ -6,7 +7,7 @@ const Footer = () => {
           <div className={styles.logo}>QPICK</div>
           <ul className={styles.list}>
               <li>Избранное</li>
-              <li>Корзина</li>
+              <Link to='/cart'>Корзина</Link>
               <li>Контакты</li>
           </ul>
           <div className={styles.terms}>

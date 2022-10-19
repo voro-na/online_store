@@ -1,22 +1,7 @@
 import {makeAutoObservable} from "mobx"
 
 class storeCart {
-    cart = [{
-        img: 'img/1.svg',
-        title: 'Apple BYZ S852I',
-        price: 2927,
-        rate: 4.7,
-        amount: 1,
-        id: 1
-    },
-        {
-            img: 'img/3.svg',
-            title: 'Apple EarPods',
-            price: 2327,
-            rate: 4.5,
-            amount: 1,
-            id: 2
-        }]
+    cart = []
 
     constructor(rootStore) {
         this.rootStore = rootStore;
@@ -28,7 +13,6 @@ class storeCart {
             this.cart.find(t => t.id === obj.id).amount++
         } else
             this.cart.push(obj)
-
     }
 
     increment(id) {
@@ -41,12 +25,24 @@ class storeCart {
         this.cart.map(t => (
             t.id === id ? t.amount-- : t
         ))
+        const index = this.cart.findIndex(t => t.amount === 0)
+        if (index !== -1)
+            this.cart.splice(index, 1)
     }
 
-    price = () => {
-        return this.cart.reduce((final, temp) => final.price * final.amount + temp.price * temp.amount)
-    }
+    Price = () => {
 
+        if (this.cart.length === 0)
+            return 0
+        else if (this.cart.length === 1)
+            return this.cart[0].price * this.cart[0].amount
+
+        let finalPrice = 0
+        for (let key in this.cart) {
+            finalPrice += this.cart[key].amount * this.cart[key].price
+        }
+        return finalPrice
+    }
 }
 
 export default storeCart

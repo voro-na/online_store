@@ -10,7 +10,7 @@ const catalog = observer(() => {
         const temp = storeProducts.catalogProducts[key].map((product) => {
             return (
                 <div className={styles.cardContainer} key={product.id}>
-                    <img alt={`${product.title}`} src={`${product.img}`}/>
+                    <img alt={`${product.title}`} src={process.env.PUBLIC_URL + product.img}/>
 
                     <div className={styles.title}>
                         <div>{product.title}</div>
@@ -20,10 +20,8 @@ const catalog = observer(() => {
                     <div className={styles.rate}>
                         <div className='_icon-star'></div>
                         <div style={{color: '#838383'}}>{product.rate}</div>
-                        <button onClick={(e)=> storeProducts.AddtoCart(product.id)}>Купить</button>
-
+                        <button onClick={(e)=> storeProducts.AddtoCart(product.id)} className={styles.btn}>Купить</button>
                     </div>
-
                 </div>
             )
         })
