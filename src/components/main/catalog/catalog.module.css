@@ -1,4 +1,4 @@
-.cardContainer{
+.cardContainer {
     background-color: white;
     border-radius: 25px;
     margin: 10px;
@@ -10,28 +10,31 @@
     font-weight: 600;
     font-size: 17px;
     line-height: 21px;
-
 }
-.cardContainer img{
+
+.cardContainer img {
     margin-bottom: 20px;
 }
-.container{
+
+.container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
-.title{
+
+.title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 15px;
 }
-.rate{
+
+.rate {
     display: grid;
     grid-template-columns: auto auto 1fr;
-
     text-align: right;
 }
-.btn{
+
+.btn {
     border: none;
     background-color: white;
     text-align: right;
@@ -40,9 +43,21 @@
     font-size: 17px;
     line-height: 21px;
 }
-.btn:hover{
+
+.btn:hover {
     font-size: 18px;
 }
-.btn:focus{
+
+.btn:focus {
     text-shadow: 0 0 0 4px #cbd6ee;
+}
+
+.category {
+    text-align: left;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 21px;
+    margin: 10px;
+
 }

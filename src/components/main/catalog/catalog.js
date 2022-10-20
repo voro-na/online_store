@@ -4,7 +4,7 @@ import useStores from "../../../store/RootStore";
 
 
 const catalog = observer(() => {
-    const {storeProducts,storeCart}=useStores
+    const {storeProducts, storeCart} = useStores
     const result = []
     for (let key in storeProducts.catalogProducts) {
         const temp = storeProducts.catalogProducts[key].map((product) => {
@@ -20,17 +20,23 @@ const catalog = observer(() => {
                     <div className={styles.rate}>
                         <div className='_icon-star'></div>
                         <div style={{color: '#838383'}}>{product.rate}</div>
-                        <button onClick={(e)=> storeProducts.AddtoCart(product.id)} className={styles.btn}>Купить</button>
+                        <button onClick={(e) => storeProducts.AddtoCart(product.id)}
+                                className={styles.btn}>Купить
+                        </button>
                     </div>
                 </div>
             )
         })
-        result.push(temp)
+
+        result.push(<div>
+            <div className={styles.category}>{key}</div>
+            <div className={styles.container}>{temp}</div>
+        </div>)
     }
     const final = result.map((t) => t)
 
     return (
-        <div className={styles.container}>
+        <div>
             {final}
         </div>
     )
