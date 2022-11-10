@@ -12,4 +12,4 @@
 
 ***
 ### Deployment
-https://voro-na.github.io/Weather-Forecast-React/
+https://voro-na.github.io/online_store/
